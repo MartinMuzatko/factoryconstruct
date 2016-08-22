@@ -1,3 +1,3 @@
 import Resource from './resource'
 
-export const METAL = new Resource('metal')
+export const METAL = new Resource('Metal')

@@ -1,9 +1,11 @@
 <app>
+    <div each={name, factory in world.factories}>
+        {factory.name} - produces: 1x{factory.resource.name}
+    </div>
     <script>
         import World from '../engine/world/world'
 
         this.world = new World
-        debugger
 
     </script>
 </app>
