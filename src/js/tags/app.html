@@ -1,17 +1,19 @@
 <app>
-  <div each={name, resource in resources}>
+    <div onclick={addResource} each={name, resource in resources}>
         {resource.name} - amount: {resource.amount}
     </div>
-  <div each={name, factory in world.factories}>
+    <div each={name, factory in world.factories}>
         {factory.name} - produces: 1x{factory.resource.name}
     </div>
     <script>
         import World from '../engine/world/world'
         import * as RESOURCES from '../engine/resource/resources'
 
-
         this.world = new World
         this.resources = RESOURCES
 
+        addResource(event) {
+            event.item.resource.amount += 1
+        }
     </script>
 </app>
