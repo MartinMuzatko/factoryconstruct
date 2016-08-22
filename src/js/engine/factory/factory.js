@@ -1,7 +1,6 @@
-import Resource from '../resource/resource'
-
 export default class Factory {
-    constructor() {
-
+    constructor(name, resource) {
+        this.name = name
+        this.resource = resource
     }
 }

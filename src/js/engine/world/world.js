@@ -1,8 +1,8 @@
-import Factory from '../factory/factory'
+import * as FACTORIES from '../factory/factories'
 
 export default class World {
     constructor() {
-        this.factories = [new Factory]
+        this.factories = FACTORIES
     }
 
 }
