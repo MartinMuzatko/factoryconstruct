@@ -15,5 +15,17 @@
         addResource(event) {
             event.item.resource.amount += 1
         }
+        setInterval(() => {
+            for (var resource in this.resources) {
+                this.resources.IRON.amount += 5
+            }
+            this.update()
+        }, 2500)
+        setInterval(() => {
+            for (var resource in this.resources) {
+                this.resources.COAL.amount += 2
+            }
+            this.update()
+        }, 4500)
     </script>
 </app>
