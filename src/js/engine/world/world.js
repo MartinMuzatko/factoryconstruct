@@ -23,9 +23,14 @@ export default class World {
     handleProduction() {
         for (let factory in this.factories) {
             factory = this.factories[factory]
-            if (factory.drain.resource.amount > RESOURCES[factory.drain.resource.name.toUppercase()].amount ) {
-
-              factory.gain.resource.amount += factory.gain.amount
+            if (factory.worker.length) {
+                if (factory.drain.resource instanceof Resource) {
+                    if (factory.drain.resource.consume(factory.drain.amount * factory.worker.length)) {
+                        factory.gain.resource.amount += factory.gain.amount * factory.worker.length
+                    }
+                } else {
+                    factory.gain.resource.amount += factory.gain.amount * factory.worker.length
+                }
             }
         }
     }

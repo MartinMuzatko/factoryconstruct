@@ -11,5 +11,5 @@ export const IRON_DRILL = new Factory(
 export const COAL_DRILL = new Factory(
     'Coal Drill',
     new Modifier(),
-    new Modifier(RESOURCES.COAL, 1)
+    new Modifier(RESOURCES.COAL, 2)
 )
