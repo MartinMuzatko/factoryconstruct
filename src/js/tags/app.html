@@ -1,6 +1,6 @@
 <app>
     <div onclick={addResource} each={name, resource in world.resources}>
-        {resource.name} - amount: {resource.amount}
+        {resource.name} : {resource.amount}
     </div>
     <div each={name, factory in world.factories}>
         <h2>{factory.name}</h2>
