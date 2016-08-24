@@ -23,8 +23,9 @@ export default class World {
     handleProduction() {
         for (let factory in this.factories) {
             factory = this.factories[factory]
-            if (factory.gain instanceof Modifier) {
-                factory.gain.resource.amount += factory.gain.amount
+            if (factory.drain.resource.amount > RESOURCES[factory.drain.resource.name.toUppercase()].amount ) {
+
+              factory.gain.resource.amount += factory.gain.amount
             }
         }
     }
