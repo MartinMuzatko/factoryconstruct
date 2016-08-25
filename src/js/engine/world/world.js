@@ -24,26 +24,7 @@ export default class World {
     handleProduction() {
         for (let factory in this.factories) {
             factory = this.factories[factory]
-            if (factory.worker.length) {
-                let drain = factory.drain.amount * factory.worker.length
-                let gain = factory.gain.amount * factory.worker.length
-
-
-                if (factory.drain.resource instanceof Resource) {
-                    if (this.tick % factory.drain.interval == 0) {
-                        factory.drain.resource.consume(drain)
-                    }
-                    if (factory.drain.resource.canConsume(drain)) {
-                        if (this.tick % factory.gain.interval == 0) {
-                            factory.gain.resource.amount += gain
-                        }
-                    }
-                } else {
-                    if (this.tick % factory.gain.interval == 0) {
-                        factory.gain.resource.amount += gain
-                    }
-                }
-            }
+            factory.work(this.tick)
         }
     }
 
