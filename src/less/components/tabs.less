@@ -1,0 +1,36 @@
+.tabs()
+{
+    text-align: center;
+    margin: 0;
+    li
+    {
+        display: inline-block;
+        margin: 0 15px 1em;
+
+        a
+        {
+            font-family: DINWeb;
+            font-weight: normal;
+            font-size: 22px;
+            line-height: 26px;
+            text-transform: uppercase;
+            color: @color-dark;
+        }
+
+        &.active
+        {
+            a
+            {
+                color: @color-secondary;
+            }
+        }
+    }
+}
+
+.tabs {
+    .tabs();
+}
+
+#tabs-container {
+    .responsiveWidth(@width-large);
+}

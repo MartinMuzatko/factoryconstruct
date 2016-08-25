@@ -1,0 +1,11 @@
+.badge(@color) {
+    border-radius: @border-width;
+    background-color: @color;
+    color: contrast(@color, @color-dark, @color-light);
+    padding: .2em @indent-small 0;
+    text-transform: uppercase;
+    font-size: .75em;
+    line-height: 1rem;
+    margin-right: .5em;
+    display: inline-block;
+}

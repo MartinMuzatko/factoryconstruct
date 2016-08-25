@@ -1,0 +1,66 @@
+.pointer(@direction: down, @color: @color-secondary-light) {
+    margin-bottom: 4em !important;
+    display: flex;
+    text-align: center;
+
+    > * {
+        position: relative;
+        margin: 0 auto;
+        padding: .75em 1em .5em 1em;
+        min-width: 10em;
+        background-color: @color;
+        text-align: center;
+        color: @color-light;
+        display: inline-block;
+
+        &:after
+        {
+            content: '';
+            position: absolute;
+            font-size: .75em;
+            height: 0;
+            width: 0;
+            border: solid 1em transparent;
+            pointer-events: none;
+            & when (@direction = up) {
+                bottom: 100%;
+                left: 50%;
+                margin-left: -1em;
+                border-bottom-color: @color;
+            }
+            & when (@direction = right) {
+                left: 100%;
+                top: 50%;
+                margin-top: -1em;
+                border-left-color: @color;
+            }
+            & when (@direction = down) {
+                top: 100%;
+                left: 50%;
+                margin-left: -1em;
+                border-top-color: @color;
+            }
+            & when (@direction = left) {
+                right: 100%;
+                top: 50%;
+                margin-top: -1em;
+                border-right-color: @color;
+            }
+        }
+    }
+}
+
+.pointer {
+    &.up {
+        .pointer(up);
+    }
+    &.right {
+        .pointer(right);
+    }
+    &.down {
+        .pointer(down);
+    }
+    &.left {
+        .pointer(left);
+    }
+}

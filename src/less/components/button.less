@@ -1,0 +1,100 @@
+/* ========================================
+BUTTON COMPONENT
+* Defines a full-width colorful container
+* @color: color
+* @type: full|outline|outline-reverse
+======================================== */
+
+.button(@color: @color-primary-dark, @type: outline) {
+    display: inline-block;
+    user-select: none;
+    width: auto;
+    padding: 1em 1rem .9em;
+    margin-top: 1em;
+    border-radius: .1em;
+    font-size: 1em;
+    line-height: .8em;
+    text-transform: uppercase;
+    transition: all @duration-action ease;
+    font-family: DINWeb;
+    & when (@type = outline) {
+        background-color: transparent;
+        color: @color-light;
+        border: 1px solid @color-light;
+        &:hover {
+            background-color: @color-light;
+            color: @color;
+        }
+    }
+    & when (@type = invisible) {
+        background-color: transparent;
+        color: @color;
+        border: 1px solid transparent;
+    }
+    & when (@type = outline-reverse) {
+        background-color: transparent;
+        color: @color;
+        border: 1px solid @color;
+        &:hover {
+            color: @color-light;
+            background-color: @color;
+        }
+    }
+    & when (@type = full) {
+        background-color: @color;
+        color: contrast(@color, @color-light);
+        border: 1px solid @color;
+
+        &:hover {
+            @color-hover: lighten(@color, 10%);
+            background-color: @color-hover;
+            color: contrast(@color-hover, @color-dark, @color-light, 50%);
+        }
+    }
+}
+
+.button {
+    .button(@color-primary-dark, full);
+    &.outline {
+        .button(@color-primary-dark, outline);
+    }
+    &.reverse {
+        .button(@color-primary-dark, outline-reverse);
+    }
+    &.full {
+        .button(@color-primary-dark, full);
+    }
+    &.secondary {
+        .button(@color-secondary, full);
+        &.outline {
+            .button(@color-secondary, outline);
+        }
+        &.reverse {
+            .button(@color-secondary, outline-reverse);
+        }
+        &.full {
+            .button(@color-secondary, full);
+        }
+    }
+    &.aside {
+        .button(@color-dark-shadow, full);
+    }
+    &.invisible {
+        .button(@color-dark, invisible);
+    }
+}
+
+.buttons {
+    margin-top: @indent-larger;
+    .button {
+        margin-top: 0 !important;
+        margin: 0 @indent-medium/2 @indent-medium;
+    }
+}
+
+div.button {
+    all: initial;
+    a {
+        .button(@color-primary-dark, full);
+    }
+}

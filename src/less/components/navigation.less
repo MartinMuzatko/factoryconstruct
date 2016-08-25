@@ -1,0 +1,108 @@
+.navigation(@collapsable: true, @breakpoint: @breakpoint-mobile-nav) {
+    position: relative;
+
+    .toggle-navigation {
+        display: none;
+    }
+
+    ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+    li
+    {
+        display: block;
+        a
+        {
+            transition: all @duration-action ease;
+            .button(@color-dark, invisible);
+            margin-top: 0;
+            &:hover {
+                color: @color-dark;
+            }
+            &.active {
+                color: @color-secondary;
+            }
+        }
+    }
+
+    @media screen and (min-width: @breakpoint) {
+        ul {
+            height: auto !important; //overwriting jquery menu expand
+        }
+    }
+
+    @media screen and (max-width: @breakpoint) {
+        ul {
+            display: block;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        }
+        li {
+            text-align: right;
+            width: 100%;
+            &:first-child {
+                margin-top: 1.5em;
+            }
+            a
+            {
+                background: @color-dark-shadow-faded;
+                margin: 0 0 .7em;
+                padding: .35rem .5rem .15rem;
+                display: inline-block;
+                line-height: 2;
+            }
+        }
+        .toggle-container {
+            line-height: 0;
+        }
+        .toggle-navigation {
+            display: inline-block;
+            font-size: 1.5em;
+            bottom: 100%;
+            cursor: pointer;
+            top: 0;
+            padding: 1.25rem;
+            @base: .33em;
+            span {
+                right: .5rem;
+            }
+            span, span:after, span:before {
+                transition: all @duration-collapse ease;
+                //font-size: .55rem;
+                font-size: .5rem;
+                border-radius: 1px;
+                height: @base;
+                width: @base*7;
+                background: @color-dark;
+                position: absolute;
+                display: block;
+                content: '';
+            }
+            span:before {
+                top: -@base*2;
+            }
+            span:after {
+                bottom: -@base*2;
+            }
+        }
+        &.active .toggle-navigation {
+            span {
+                background-color: transparent;
+            }
+            span:before, span:after {
+                top: 0;
+            }
+            span:before {
+                transform: rotate(45deg);
+            }
+            span:after {
+                transform: rotate(-45deg);
+            }
+        }
+    }
+
+}

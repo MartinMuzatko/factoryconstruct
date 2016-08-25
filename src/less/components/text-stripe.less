@@ -1,0 +1,16 @@
+/* ========================================
+TEXT-STRIPE COMPONENT
+* Multiline padded Text
+======================================== */
+
+.text-stripe(@background: @color-light, @size: 1rem) {
+    display: inline;
+    background-color: @background;
+    color: contrast(@background, @color-dark, @color-light);
+    margin: 0;
+    padding: .2em 0 0 0; //Font specific
+    box-shadow: @size 0 0 @background, -@size 0 0 @background;
+    position: relative;
+    left: @size;
+    line-height: 1.5;
+}

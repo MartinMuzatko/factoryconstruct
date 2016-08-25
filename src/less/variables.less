@@ -1,0 +1,92 @@
+/*  ========================================
+    COLORS
+    ======================================== */
+
+@color-primary: hsl(200, 50%, 50%);
+@color-primary-light: lighten(@color-primary, 10%);
+@color-primary-dark: darken(@color-primary, 10%);
+@color-secondary: hsl(280, 100%, 44%);
+@color-secondary-light: lighten(@color-secondary, 10%);
+@color-secondary-dark: darken(@color-secondary, 10%);
+
+@color-dark: hsl(201, 15%, 27%);
+@color-light: #FFF;
+@color-dark-shadow: fadeout(@color-dark, 50%);
+@color-dark-shadow-faded: fadeout(@color-dark-shadow, 40%);
+@color-light-shadow: fadeout(@color-light, 50%);
+
+// not needed for help.k15t.com
+@color-social-facebook: hsl(221, 44%, 41%);
+@color-social-twitter:  hsl(206, 68%, 54%);
+@color-social-linkedin: hsl(215, 43%, 49%);
+@color-social-xing:     hsl(181, 100%, 20%);
+@color-social-rss:      hsl(19, 89%, 54%);
+@color-social-mail:     @color-secondary;
+
+// AUI Colors
+@color-aui-warning:    hsl(5, 62%, 52%);
+@color-aui-note:       hsl(48, 100%, 67%);
+@color-aui-info:       hsl(202, 69%, 62%);
+@color-aui-tip:        hsl(102, 40%, 48%);
+
+/*  ========================================
+    FONTS
+    ======================================== */
+
+@font-light: DINWeb-Light;
+@font-medium: DINWeb-Medium;
+@font-bold: DINWeb-bold;
+@font-replacement: sans serif;
+
+/*  ========================================
+    BREAKPOINTS
+    ======================================== */
+
+@breakpoint-sm: 600px;
+@breakpoint-md: 960px;
+@breakpoint-lg: 1200px;
+
+/*  ========================================
+    Z-INDEXES
+    ======================================== */
+
+@z-index-overlay: 100;
+@z-index-header: 200;
+@z-index-modal: 400;
+@z-index-popup: 800;
+
+/*  ========================================
+    DURATIONS
+    ======================================== */
+
+@duration-hover: .1s;
+@duration-action: .33s;
+@duration-collapse: .5s;
+@duration-animation: 1s;
+
+/*  ========================================
+    INDENTATIONS
+    ======================================== */
+
+// header & footer
+@indent-primary: large;
+// products, ctas, search + results
+@indent-secondary: medium;
+// articles
+@indent-content: @indent-primary;
+
+@indent-outer: 6em;
+@indent-larger: 4em;
+@indent-large: 2em;
+@indent-medium: 1em;
+@indent-small: .25em;
+
+@width-small: 40*16;
+@width-medium: 20*16;
+@width-large: 10*16;
+
+/*  ========================================
+    INDENTATIONS
+    ======================================== */
+
+@border-width: @indent-small;

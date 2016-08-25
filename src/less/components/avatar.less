@@ -1,0 +1,38 @@
+/* ========================================
+AVATAR COMPONENT
+* Image
+*
+* @type
+======================================== */
+.avatar(@shape: info) {
+    img
+    {
+        & when (@shape = circle) {
+            border-radius: 100%;
+        }
+        vertical-align: middle;
+    }
+    .authorinfo-name
+    {
+        text-transform: uppercase;
+        font-weight: 600;
+        color: @color-dark;
+    }
+    p
+    {
+        margin-top: 0;
+        margin-left: 1em;
+        font-size: .8em;
+        padding: 0;
+    }
+}
+
+.authorinfo {
+    margin-bottom: @indent-large;
+    .avatar(circle);
+    img
+    {
+        width: 3em;
+        height: 3em;
+    }
+}
