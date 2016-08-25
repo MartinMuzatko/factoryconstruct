@@ -1,8 +1,40 @@
 .resources {
-
+    .resource {
+        border: 1px solid black;
+    }
+    .resource-amount {
+        font-size: 1.5em;
+        text-align: right;
+        float: right;
+    }
 }
 
 section > div {
     background: @color-primary;
     padding: 1em;
+}
+
+.worker {
+    padding: .5em;
+    display: inline-block;
+    border-radius: 100%;
+}
+
+.workers {
+    display: inline-block;
+    .worker {
+        background: @color-secondary-dark;
+        &.active {
+            background: @color-secondary-light;
+        }
+    }
+    &:hover .worker {
+        background: @color-secondary-light;
+        &.active, &:hover {
+            background: @color-secondary-light;
+        }
+        &:hover ~ * {
+            background: @color-secondary-dark;
+        }
+    }
 }
