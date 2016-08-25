@@ -1,31 +1,32 @@
 <app>
-    <div onclick={addResource} each={name, resource in world.resources}>
-        {resource.name} : {resource.amount}
-    </div>
-    <div each={name, factory in world.factories}>
-        <h2>{factory.name}</h2>
-        <div>
-            produces: {factory.gain.amount*factory.worker.length}x{factory.gain.resource.name}
-            all {factory.gain.interval}s
+    <section class="resources" layout="row">
+        <div class="resource" flex="10" each={name, resource in world.resources}>
+            <span class="resource-name">{resource.name}</span>
+            <span class="resource-amount">{resource.amount}</span>
         </div>
-        <div if={factory.drain.resource}>
-            requires: {factory.drain.amount*factory.worker.length}x{factory.drain.resource.name}
-            all {factory.drain.interval}s
+    </section>
+    <section layout="row" class="factories">
+        <div flex="50" class="factory" each={name, factory in world.factories}>
+            <h2>{factory.name}</h2>
+            <div>
+                produces: {factory.gain.amount*factory.worker.length}x{factory.gain.resource.name}
+                all {factory.gain.interval}s
+            </div>
+            <div if={factory.drain.resource}>
+                requires: {factory.drain.amount*factory.worker.length}x{factory.drain.resource.name}
+                all {factory.drain.interval}s
+            </div>
+            <br>
+            Worker
+            <a onclick={addWorker}>+</a>/
+            <a onclick={removeWorker}>-</a>
+            <span each={worker in factory.worker} class="worker"></span>
         </div>
-        <br>
-        Worker
-        <a onclick={addWorker}>+</a>/
-        <a onclick={removeWorker}>-</a>
-        <span each={worker in factory.worker} class="worker"></span>
-    </div>
+    </section>
     <script>
         import World from '../engine/world/world'
 
         this.world = new World(this)
-
-        addResource(event) {
-            event.item.resource.amount += 1
-        }
 
         addWorker(event) {
             event.item.factory.addWorker()
