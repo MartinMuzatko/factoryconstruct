@@ -18,4 +18,8 @@ export default class Resource {
         }
         return false
     }
+
+    add(amount) {
+        this.amount += parseInt(amount)
+    }
 }

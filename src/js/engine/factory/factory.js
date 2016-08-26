@@ -1,3 +1,4 @@
+import Resource from '../resource/resource'
 import * as RESOURCES from '../resource/resources'
 
 export default class Factory {
@@ -11,21 +12,28 @@ export default class Factory {
 
     work(tick) {
         if (this.worker.length) {
-            let drain = this.drain.amount * this.worker.length
-            let gain = this.gain.amount * this.worker.length
+            //let drain = this.drain.amount * this.worker.length
+            //let gain = this.gain.amount * this.worker.length
 
-            if (this.drain.resource instanceof Resource) {
-                if (tick % this.drain.interval == 0) {
-                    this.drain.resource.consume(drain)
+            let goal = 0
+            for (let drain in this.drain) {
+                drain = this.drain[drain]
+                if (drain.resource.canConsume(drain.amount * this.worker.length)) {
+                    goal += 1
                 }
-                if (this.drain.resource.canConsume(drain)) {
-                    if (tick % this.gain.interval == 0) {
-                        this.gain.resource.amount += gain
+            }
+            if (goal == this.drain.length) {
+                for (let drain in this.drain) {
+                    drain = this.drain[drain]
+                    if (tick % drain.interval == 0) {
+                        drain.resource.consume(drain.amount * this.worker.length)
                     }
                 }
-            } else {
-                if (tick % this.gain.interval == 0) {
-                    this.gain.resource.amount += gain
+                for (let gain in this.gain) {
+                    gain = this.gain[gain]
+                    if (tick % gain.interval == 0) {
+                        gain.resource.add(gain.amount * this.worker.length)
+                    }
                 }
             }
         }

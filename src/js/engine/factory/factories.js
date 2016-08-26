@@ -5,7 +5,7 @@ import * as RESOURCES from '../resource/resources'
 export const COAL_MINE = new Factory(
     'Coal Drill',
     5,
-    new Modifier(),
+    [],
     new Modifier(RESOURCES.COAL, 2)
 )
 
