@@ -12,8 +12,6 @@ export default class Factory {
 
     work(tick) {
         if (this.worker.length) {
-            //let drain = this.drain.amount * this.worker.length
-            //let gain = this.gain.amount * this.worker.length
 
             let goal = 0
             for (let drain in this.drain) {
