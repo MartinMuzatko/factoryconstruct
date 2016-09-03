@@ -29,3 +29,15 @@ export const WIRE_EXTRUDER = new Factory(
     new Modifier(RESOURCES.COPPER, 1, 5),
     new Modifier(RESOURCES.WIRE, 2)
 )
+
+export const COMPUTER_PARTS_ASSEMBLY = new Factory(
+    'Computer Parts Assembly',
+    3,
+    [
+        new Modifier(RESOURCES.COPPER, 1, 5),
+        new Modifier(RESOURCES.IRON, 2, 5),
+        new Modifier(RESOURCES.COAL),
+        new Modifier(RESOURCES.WIRE, 50, 5),
+    ],
+    new Modifier(RESOURCES.COMPUTER_CHIP, 1)
+)

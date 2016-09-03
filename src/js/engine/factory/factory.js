@@ -1,4 +1,3 @@
-import Resource from '../resource/resource'
 import * as RESOURCES from '../resource/resources'
 
 export default class Factory {
