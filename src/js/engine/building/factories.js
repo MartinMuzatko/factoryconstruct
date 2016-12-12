@@ -25,7 +25,7 @@ export const COPPER_DRILL = new Factory(
 
 export const WIRE_EXTRUDER = new Factory(
     'Wire Extruder',
-    5,
+    15,
     new Modifier(RESOURCES.COPPER, 1, 5),
     new Modifier(RESOURCES.WIRE, 2)
 )
@@ -34,10 +34,23 @@ export const COMPUTER_PARTS_ASSEMBLY = new Factory(
     'Computer Parts Assembly',
     3,
     [
-        new Modifier(RESOURCES.COPPER, 1, 5),
-        new Modifier(RESOURCES.IRON, 2, 5),
+        new Modifier(RESOURCES.COPPER, 8, 5),
+        new Modifier(RESOURCES.IRON, 5, 5),
         new Modifier(RESOURCES.COAL),
         new Modifier(RESOURCES.WIRE, 50, 5),
     ],
-    new Modifier(RESOURCES.COMPUTER_CHIP, 1)
+    new Modifier(RESOURCES.COMPUTER_CHIP, 1, 5)
+)
+
+export const ROBOT_ASSEMBLY = new Factory(
+    'Robot Assembly',
+    3,
+    [
+        new Modifier(RESOURCES.COPPER, 50, 20),
+        new Modifier(RESOURCES.IRON, 25, 20),
+        new Modifier(RESOURCES.COAL),
+        new Modifier(RESOURCES.WIRE, 20, 20),
+        new Modifier(RESOURCES.COMPUTER_CHIP, 10, 20),
+    ],
+    new Modifier(RESOURCES.WORKER, 1, 20)
 )

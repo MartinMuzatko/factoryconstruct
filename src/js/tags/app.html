@@ -9,12 +9,18 @@
         <div flex="50" class="factory" each={name, factory in world.factories}>
             <h2>{factory.name}</h2>
             <div>
-                produces: {factory.gain.amount*factory.worker.length}x{factory.gain.resource.name}
-                all {factory.gain.interval}s
-            </div>
-            <div if={factory.drain.resource}>
-                requires: {factory.drain.amount*factory.worker.length}x{factory.drain.resource.name}
-                all {factory.drain.interval}s
+                produces
+                <div each={gain in factory.gain}>
+                    {gain.amount*factory.worker.length}
+                    <small>({gain.amount})</small>
+                    x{gain.resource.name} all {gain.interval}s
+                </div>
+                requires
+                <div each={drain in factory.drain}>
+                    {drain.amount*factory.worker.length}
+                    <small>({drain.amount})</small>
+                    x{drain.resource.name} all {drain.interval}s
+                </div>
             </div>
             <br>
             Worker

@@ -28,4 +28,11 @@ export default class World {
         }
     }
 
+    calcProduction() {
+        for (let factory in this.factories) {
+            factory = this.factories[factory]
+            let gains = []
+        }
+    }
+
 }

@@ -6,7 +6,7 @@ export default class Factory {
         this.drain = drain instanceof Array ? drain : [drain]
         this.gain = gain instanceof Array ? gain : [gain]
         this.worker = []
-        this.workerLimit = [1,2,3,4,5]
+        this.workerLimit = Array(workerLimit).join().split(',')
     }
 
     work(tick) {
@@ -48,5 +48,9 @@ export default class Factory {
             RESOURCES.WORKER.amount += 1
             this.worker.pop()
         }
+    }
+
+    getProductionAverage() {
+
     }
 }

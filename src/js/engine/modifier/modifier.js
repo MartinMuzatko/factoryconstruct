@@ -4,4 +4,8 @@ export default class Modifier {
         this.amount = amount
         this.interval = interval
     }
+
+    getAverage() {
+        return Math.round(this.amount / this.interval)
+    }
 }
